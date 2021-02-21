@@ -1,0 +1,124 @@
+h2 {
+    color: hsl(201, 7, 47);
+}
+
+h3 {
+    color: hsl(195, 9, 45);
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+@media (min-width: 700px) {
+    main {
+        margin-left: auto;
+        margin-right: auto;
+        width: 60vw;
+        min-width: 650px;
+    }
+}
+
+
+@media (max-width: 700px) {
+    main {
+        margin-left: auto;
+        margin-right: auto;
+        width: 90vw;
+    }
+}
+
+
+.cur-weather {
+    header {
+        display: flex;
+        flex-direction: row;
+
+        .reload-geolocation-button {
+            background-color: hsl(201, 15, 82);
+            color: hsl(201, 7, 53);
+            text-align: center;
+            vertical-align: middle;
+            border-width: 0px;
+            
+        }
+    }
+}
+
+.circle-button {
+    background-color: hsl(194, 10, 48);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    border-width: 0px;
+}
+
+
+
+.favorites {
+    padding: 0px;
+    margin: 0px;    
+}
+
+ul.weather {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+
+    li {
+        background-color: hsl(192, 6, 67);
+        margin: 5px 0px;
+        padding: 4px 8px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        color: white;
+    }
+}
+
+ul.none-style {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin cols($count) {
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .col-item {
+        width: (if( $count == 1, 100%, 95%) / #{$count});
+    }
+}
+
+@for $i from 1 to 3 {
+    .flex-cols-#{$i} {
+        @include cols($i)
+    }
+}
+
+@media (max-width: 700px) {
+    .flex-cols {
+        @include cols(1)
+    }
+}
+
+@media (min-width: 700px) {
+    .flex-cols {
+        @include cols(2)
+    }
+}
