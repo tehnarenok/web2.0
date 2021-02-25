@@ -1,14 +1,19 @@
 h2 {
     color: hsl(201, 7, 47);
+    font-size: 25pt;
+    font-weight: 500;
 }
 
 h3 {
     color: hsl(195, 9, 45);
+    font-size: 20pt;
+    margin: 0px;
 }
 
 body {
     margin: 0px;
     padding: 0px;
+    padding-top: 20px;
 }
 
 
@@ -32,17 +37,80 @@ body {
 
 
 .cur-weather {
+    display: flex;
+    flex-direction: column;
+
     header {
         display: flex;
         flex-direction: row;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+
+        h2 {
+            position: absolute;
+            left: 0;
+        }
 
         .reload-geolocation-button {
             background-color: hsl(201, 15, 82);
             color: hsl(201, 7, 53);
             text-align: center;
-            vertical-align: middle;
             border-width: 0px;
-            
+            height: 40px;
+            padding-left: 20px;
+            padding-right: 20px;
+            border-radius: 5px;
+        }
+    }
+
+    .flex-row {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        align-items: center;
+        justify-content: space-between;
+
+        img {
+            height: 130px;
+        }
+
+        span {
+            font-size: 70pt;
+            font-weight: bold;
+            color:  hsl(195, 9, 45);;
+        }
+    }
+
+    .cur-weather-metrics {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}
+
+@media (min-width: 700px) {
+    .reload-geolocation-button {
+        span {
+            display: block;
+        }
+        img {
+            display: none;
+        }
+    }
+}
+
+
+@media (max-width: 700px) {
+    .reload-geolocation-button {
+        span {
+            display: none;
+        }
+        img {
+            height: 30px;
+            margin-top: 2px;
+            display: block;
         }
     }
 }
@@ -55,10 +123,9 @@ body {
     color: white;
     text-align: center;
     vertical-align: middle;
+    outline: none;
     border-width: 0px;
 }
-
-
 
 .favorites {
     padding: 0px;
@@ -87,11 +154,78 @@ ul.none-style {
     margin: 0px;
 }
 
+.city-card {
+    margin: 15px 0px;
+}
+
+.header-weather {
+    display: grid;
+    flex-direction: row;
+    grid-template-rows: auto;
+    grid-template-columns: auto auto 30% 20%;
+    align-items: center;
+
+    img {
+        height: 40px;
+        margin-left: 10px;
+    }
+
+    button {
+        justify-self: right;
+    }
+
+    span {
+        justify-self: right;
+        margin-right: 10px;
+
+        font-size: 22pt;
+        font-weight: bold;
+    }
+
+}
+
 .header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+}
+
+.new-city {
+    display: flex;
+    flex-direction: row;
+
+    input[type=text] {
+        border: none;
+        box-sizing: border-box;
+        padding: 10px;
+        width: 20vw;
+    
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+
+@media (max-width: 700px) {
+    .header-fav {
+        display: block;
+    }
+
+    .new-city {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    
+        input[type=text] {
+            width: 70vw;
+        
+            &:focus {
+                outline: none;
+            }
+        }
+    }
 }
 
 @mixin cols($count) {
@@ -101,7 +235,7 @@ ul.none-style {
     justify-content: space-between;
 
     .col-item {
-        width: (if( $count == 1, 100%, 95%) / #{$count});
+        width: (if( $count == 1, 100%, 90%) / #{$count});
     }
 }
 

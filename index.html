@@ -2,6 +2,8 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="styles.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Weather</title>
     </head>
     <body>
         <main>
@@ -10,18 +12,18 @@
                     <h2>Погода здесь</h2>
                     <button class="reload-geolocation-button">
                         <span>Обновить геолокацию</span>
-                        <img />
+                        <img src="/static/images/refresh.svg" />
                     </button>
                 </header>
                 <div class="flex-cols">
                     <div class="col-item ">
                         <h3>Moscow</h3>
-                        <div class="flex-cols-2">
-                            <img class="col-item "/>
-                            <span class="col-item ">8°C</span>
+                        <div class="flex-row">
+                            <img src="/static/images/weather.png"/>
+                            <span >8°C</span>
                         </div>
                     </div>
-                    <div class="col-item ">
+                    <div class="col-item cur-weather-metrics">
                         <ul class="weather">
                             <li>
                                 <b>Ветер</b>
@@ -48,20 +50,21 @@
                 </div>
             </section>
             <section class="favorites">
-                <div class="header">
+                <div class="header header-fav">
                     <h2>Избранное</h2>
-                    <div>
-                        <input />
+                    <div class="new-city">
+                        <input type="text" placeholder="Добавить новый город"/>
                         <button class="circle-button">
                             +
                         </button>
                     </div>
                 </div>
                 <ul class="flex-cols none-style">
-                    <li class="col-item">
-                        <div class="header">
-                            <h3>Moscow</h3>
-                            <span></span>
+                    <li class="col-item city-card">
+                        <div class="header-weather">
+                            <h3>Helsinki</h3>
+                            <span>8°C</span>
+                            <img src="/static/images/weather.png"/>
                             <button class="circle-button">
                                 X
                             </button>
@@ -89,10 +92,11 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="col-item">
-                        <div class="header">
+                    <li class="col-item city-card">
+                        <div class="header-weather">
                             <h3>Moscow</h3>
-                            <span></span>
+                            <span>8°C</span>
+                            <img src="/static/images/weather.png"/>
                             <button class="circle-button">
                                 X
                             </button>
@@ -120,10 +124,11 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="col-item">
-                        <div class="header">
+                    <li class="col-item city-card">
+                        <div class="header-weather">
                             <h3>Moscow</h3>
-                            <span></span>
+                            <span>8°C</span>
+                            <img src="/static/images/weather.png"/>
                             <button class="circle-button">
                                 X
                             </button>
@@ -151,10 +156,11 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="col-item">
-                        <div class="header">
+                    <li class="col-item city-card">
+                        <div class="header-weather">
                             <h3>Moscow</h3>
-                            <span></span>
+                            <span>8°C</span>
+                            <img src="/static/images/weather.png"/>
                             <button class="circle-button">
                                 X
                             </button>
@@ -182,10 +188,11 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="col-item">
-                        <div class="header">
+                    <li class="col-item city-card">
+                        <div class="header-weather">
                             <h3>Moscow</h3>
-                            <span></span>
+                            <span>8°C</span>
+                            <img src="/static/images/weather.png"/>
                             <button class="circle-button">
                                 X
                             </button>
@@ -213,10 +220,11 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="col-item">
-                        <div class="header">
+                    <li class="col-item city-card">
+                        <div class="header-weather">
                             <h3>Moscow</h3>
-                            <span></span>
+                            <span>8°C</span>
+                            <img src="/static/images/weather.png"/>
                             <button class="circle-button">
                                 X
                             </button>
