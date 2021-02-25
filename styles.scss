@@ -87,7 +87,7 @@ body {
         }
 
         span {
-            font-size: 55pt;
+            font-size: 5vw;
             font-weight: bold;
             color:  hsl(195, 9, 45);;
         }
@@ -113,7 +113,13 @@ body {
             h2 {
                 position: static;
             }
-        }        
+        }
+        
+        .flex-row { 
+            span {
+                font-size: 10vw;
+            }
+        }
     }
 }
 

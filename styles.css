@@ -106,7 +106,7 @@ body {
 }
 
 .cur-weather .flex-row span {
-  font-size: 55pt;
+  font-size: 5vw;
   font-weight: bold;
   color: #68787d;
 }
@@ -143,6 +143,9 @@ body {
   }
   .cur-weather header h2 {
     position: static;
+  }
+  .cur-weather .flex-row span {
+    font-size: 10vw;
   }
 }
 
