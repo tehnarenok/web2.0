@@ -6,7 +6,7 @@ h2 {
 
 h3 {
   color: #3d3d3d;
-  font-size: 20pt;
+  font-size: 16pt;
   margin: 0px;
 }
 
@@ -21,8 +21,9 @@ body {
   main {
     margin-left: auto;
     margin-right: auto;
-    width: 60vw;
-    min-width: 650px;
+    width: 65vw;
+    min-width: 700px;
+    max-width: 100vw;
   }
 }
 
@@ -32,6 +33,17 @@ body {
     margin-right: auto;
     width: 90vw;
   }
+}
+
+.reload-geolocation-button {
+  background-color: #cad3d8;
+  color: #7f8a90;
+  text-align: center;
+  border-width: 0px;
+  height: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 5px;
 }
 
 .cur-weather {
@@ -65,17 +77,6 @@ body {
 .cur-weather header h2 {
   position: absolute;
   left: 0;
-}
-
-.cur-weather header .reload-geolocation-button {
-  background-color: #cad3d8;
-  color: #7f8a90;
-  text-align: center;
-  border-width: 0px;
-  height: 40px;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-radius: 5px;
 }
 
 .cur-weather h3 {
@@ -121,6 +122,29 @@ body {
           flex-direction: column;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+}
+
+@media (max-width: 700px) {
+  .cur-weather header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    position: static;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 20px;
+  }
+  .cur-weather header h2 {
+    position: static;
+  }
 }
 
 @media (min-width: 700px) {
