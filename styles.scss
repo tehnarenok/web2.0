@@ -1,11 +1,16 @@
+$base-font-color: white;
+$base-li-background-color: rgb(173, 185, 192);
+$body-background-color: white;
+$base-headers-color: rgb(61, 61, 61);
+
 h2 {
-    color: hsl(201, 7, 47);
+    color: $base-headers-color;
     font-size: 25pt;
     font-weight: 500;
 }
 
 h3 {
-    color: hsl(195, 9, 45);
+    color: $base-headers-color;
     font-size: 20pt;
     margin: 0px;
 }
@@ -14,6 +19,7 @@ body {
     margin: 0px;
     padding: 0px;
     padding-top: 20px;
+    background-color: $body-background-color;
 }
 
 
@@ -65,6 +71,10 @@ body {
         }
     }
 
+    h3 {
+        font-size: 30pt;
+    }
+
     .flex-row {
         display: flex;
         flex-direction: row;
@@ -73,7 +83,7 @@ body {
         justify-content: space-between;
 
         img {
-            height: 130px;
+            height: 120px;
         }
 
         span {
@@ -138,7 +148,7 @@ ul.weather {
     margin: 0px;
 
     li {
-        background-color: hsl(192, 6, 67);
+        background-color: $base-li-background-color;
         margin: 5px 0px;
         padding: 4px 8px;
         display: flex;

@@ -1,11 +1,11 @@
 h2 {
-  color: #6f7a80;
+  color: #3d3d3d;
   font-size: 25pt;
   font-weight: 500;
 }
 
 h3 {
-  color: #68787d;
+  color: #3d3d3d;
   font-size: 20pt;
   margin: 0px;
 }
@@ -14,6 +14,7 @@ body {
   margin: 0px;
   padding: 0px;
   padding-top: 20px;
+  background-color: white;
 }
 
 @media (min-width: 700px) {
@@ -77,6 +78,10 @@ body {
   border-radius: 5px;
 }
 
+.cur-weather h3 {
+  font-size: 30pt;
+}
+
 .cur-weather .flex-row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -97,7 +102,7 @@ body {
 }
 
 .cur-weather .flex-row img {
-  height: 130px;
+  height: 120px;
 }
 
 .cur-weather .flex-row span {
@@ -162,7 +167,7 @@ ul.weather {
 }
 
 ul.weather li {
-  background-color: #a6aeb0;
+  background-color: #adb9c0;
   margin: 5px 0px;
   padding: 4px 8px;
   display: -webkit-box;
