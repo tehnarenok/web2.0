@@ -145,6 +145,11 @@ ul.weather {
         flex-direction: row;
         justify-content: space-between;
         color: white;
+        align-items: center;
+
+        span {
+            text-align: right;
+        }
     }
 }
 
@@ -167,7 +172,7 @@ ul.none-style {
 
     img {
         height: 40px;
-        margin-left: 10px;
+        margin-left: 5px;
     }
 
     button {
@@ -176,7 +181,7 @@ ul.none-style {
 
     span {
         justify-self: right;
-        margin-right: 10px;
+        margin-right: 5px;
 
         font-size: 22pt;
         font-weight: bold;
@@ -188,6 +193,7 @@ ul.none-style {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 .new-city {
@@ -197,7 +203,7 @@ ul.none-style {
     input[type=text] {
         border: none;
         box-sizing: border-box;
-        padding: 10px;
+        padding: 0px 10px;
         width: 20vw;
     
         &:focus {

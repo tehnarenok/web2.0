@@ -176,6 +176,13 @@ ul.weather li {
       -ms-flex-pack: justify;
           justify-content: space-between;
   color: white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+ul.weather li span {
+  text-align: right;
 }
 
 ul.none-style {
@@ -206,7 +213,7 @@ ul.none-style {
 
 .header-weather img {
   height: 40px;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .header-weather button {
@@ -217,7 +224,7 @@ ul.none-style {
 .header-weather span {
   -ms-grid-column-align: right;
       justify-self: right;
-  margin-right: 10px;
+  margin-right: 5px;
   font-size: 22pt;
   font-weight: bold;
 }
@@ -233,6 +240,9 @@ ul.none-style {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .new-city {
@@ -249,7 +259,7 @@ ul.none-style {
   border: none;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 10px;
+  padding: 0px 10px;
   width: 20vw;
 }
 
