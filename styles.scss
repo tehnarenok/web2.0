@@ -3,10 +3,17 @@ $base-li-background-color: rgb(173, 185, 192);
 $body-background-color: white;
 $base-headers-color: rgb(61, 61, 61);
 
+h1 {
+    color: $base-headers-color;
+    font-size: 25pt;
+    font-weight: 500;
+}
+
 h2 {
     color: $base-headers-color;
     font-size: 25pt;
     font-weight: 500;
+    margin: 2px;
 }
 
 h3 {
@@ -53,25 +60,26 @@ body {
     border-radius: 5px;
 }
 
+header {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+
+    h1 {
+        position: absolute;
+        left: 0;
+    }
+}
+
 .cur-weather {
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
 
-    header {
-        display: flex;
-        flex-direction: row;
-        position: relative;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 20px;
-
-        h2 {
-            position: absolute;
-            left: 0;
-        }
-    }
-
-    h3 {
+    h2 {
         font-size: 30pt;
     }
 
@@ -102,23 +110,19 @@ body {
 
 @media (max-width: 700px) {
     .cur-weather {
-        header {
-            display: flex;
-            flex-direction: row;
-            position: static;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-
-            h2 {
-                position: static;
-            }
-        }
-        
         .flex-row { 
             span {
                 font-size: 10vw;
             }
+        }
+    }
+
+    header {
+        position: static;
+        justify-content: space-between;
+
+        h1 {
+            position: static;
         }
     }
 }
