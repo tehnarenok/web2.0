@@ -88,6 +88,7 @@ header h1 {
 
 .cur-weather h2 {
   font-size: 30pt;
+  font-weight: bold;
 }
 
 .cur-weather .flex-row {
