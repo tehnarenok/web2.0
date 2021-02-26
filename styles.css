@@ -168,7 +168,7 @@ header h1 {
 }
 
 .circle-button {
-  background-color: #6e8187;
+  background-color: #687579;
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -177,6 +177,8 @@ header h1 {
   vertical-align: middle;
   outline: none;
   border-width: 0px;
+  color: #67e66e;
+  font-weight: bold;
 }
 
 .favorites {
@@ -191,7 +193,7 @@ ul.weather {
 }
 
 ul.weather li {
-  background-color: #adb9c0;
+  background-color: rgba(128, 160, 163, 0.8);
   margin: 5px 0px;
   padding: 4px 8px;
   display: -webkit-box;
@@ -289,15 +291,18 @@ ul.none-style {
 }
 
 .new-city input[type=text] {
-  border: none;
+  border: solid 0px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 0px 10px;
   width: 20vw;
+  margin-right: 10px;
+  background-color: #fcaff8;
+  border-radius: 3px;
 }
 
-.new-city input[type=text]:focus {
-  outline: none;
+.new-city button {
+  font-size: 17pt;
 }
 
 @media (max-width: 700px) {
