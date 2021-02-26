@@ -180,8 +180,12 @@ ul.weather {
         color: white;
         align-items: center;
 
-        span {
+        span.value {
             text-align: right;
+        }
+
+        span.name {
+            font-weight: bold;
         }
     }
 }

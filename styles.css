@@ -212,8 +212,12 @@ ul.weather li {
           align-items: center;
 }
 
-ul.weather li span {
+ul.weather li span.value {
   text-align: right;
+}
+
+ul.weather li span.name {
+  font-weight: bold;
 }
 
 ul.none-style {
