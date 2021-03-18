@@ -193,13 +193,11 @@ ul.none-style {
     margin: 15px 0px;
 }
 
-
-
 .header-weather {
     display: grid;
     flex-direction: row;
     grid-template-rows: auto;
-    grid-template-columns: auto auto 30% 20%;
+    grid-template-columns: auto auto 40px 40px;
     align-items: center;
 
     img {
@@ -215,7 +213,7 @@ ul.none-style {
         justify-self: right;
         margin-right: 5px;
 
-        font-size: 22pt;
+        font-size: 17pt;
         font-weight: bold;
     }
 
