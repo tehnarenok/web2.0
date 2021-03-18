@@ -179,7 +179,7 @@ ul.weather {
 }
 
 ul.weather li {
-  background-color: rgba(128, 160, 163, 0.8);
+  background-color: #85abcf;
   margin: 5px 0px;
   padding: 4px 8px;
   display: -webkit-box;
