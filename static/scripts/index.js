@@ -23,7 +23,7 @@ const creteError = (name, checkRepeats, callback) => {
     delButton.setAttribute('class', 'circle-button')
     delButton.append(createElement('img', {src: '/static/images/del.svg'}))
     delButton.addEventListener('click', function () {
-        console.log(this)
+        // console.log(this)
         this.parentElement.parentElement.parentElement.remove()
         cities.remove(name)
     })
@@ -85,7 +85,7 @@ function loadData(data) {
                         return resolve(parseApiRequest(data.data[0]))
                     }
                 })
-                .catch(err => reject(err))
+                .catch(err => reject('Ошибка API'))
         }
         else {
             if(data.coord) {
@@ -98,7 +98,7 @@ function loadData(data) {
                             return resolve(parseApiRequest(data.data[0]))
                         }
                     })
-                    .catch(err => reject(err))
+                    .catch(err => reject('Ошибка API'))
             }
             else {
                 reject('Invalid data')
