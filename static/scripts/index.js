@@ -169,6 +169,17 @@ const createCity = (data) => {
         createElement('span', {class: 'value'}, el.value)
     ))
 
+
+    let delButton = createElement(
+        'button',
+        {class: 'circle-button'},
+        createElement('img', {src: '/static/images/del.svg'})
+    )
+    delButton.addEventListener('click', function() {
+        this.parentElement.parentElement.remove()
+        cities.remove(data.city.toLowerCase())
+    })
+
     let city = createElement(
         'li',
         {class: 'col-item city-card'},
@@ -178,7 +189,7 @@ const createCity = (data) => {
             createElement('h3', null, `${data.city}`),
             createElement('span', null, `${data.temp}`),
             createElement('img', {src: data.img}),
-            createElement('button', {class: 'circle-button', onclick: `deleteCity(this, "${data.city.toLowerCase()}")`}, createElement('img', {src: '/static/images/del.svg'}))
+            delButton
         ),
         createElement(
             'ul',
@@ -188,11 +199,6 @@ const createCity = (data) => {
     )
 
     return city
-}
-
-const deleteCity = (element, name) => {
-    element.parentElement.parentElement.remove()
-    cities.remove(name)
 }
 
 const addCity = (name, checkRepeats, callback, errorCard = null) => {
@@ -308,7 +314,7 @@ const loadCurrentWeather = () => {
 
 loadCurrentWeather()
 
-document.getElementById('new-city').onsubmit = function(e) {
+document.getElementById('new-city').addEventListener('submit', function(e) {
     e.preventDefault()
 
     let name = document.getElementById('city-name').value 
@@ -318,9 +324,9 @@ document.getElementById('new-city').onsubmit = function(e) {
     document.getElementById('city-name').value = ''
 
     return false
-}
+})
 
-document.getElementById('reload-button').onclick = loadCurrentWeather
+document.getElementById('reload-button').addEventListener('click', loadCurrentWeather)
 
 cities.forEach(city => {
     addCity(city)
