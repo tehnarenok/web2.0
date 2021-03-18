@@ -22,17 +22,17 @@ const creteError = (name, checkRepeats, callback) => {
     let delButton = document.createElement('button')
     delButton.setAttribute('class', 'circle-button')
     delButton.append(createElement('img', {src: '/static/images/del.svg'}))
-    delButton.onclick = function () {
+    delButton.addEventListener('click', function () {
         console.log(this)
         this.parentElement.parentElement.parentElement.remove()
         cities.remove(name)
-    }
+    })
 
     let reloadButton = createElement('button', {class: 'circle-button'}, createElement('img', {src: '/static/images/reload.svg'}))
 
-    reloadButton.onclick = function() {
+    reloadButton.addEventListener('click', function() {
         addCity(name, checkRepeats, callback, this.parentElement.parentElement.parentElement)
-    }
+    })
 
     let errorBlock = createElement(
         'li',
