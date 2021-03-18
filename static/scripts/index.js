@@ -65,13 +65,13 @@ const parseApiRequest = (data) => {
         city: data.city_name,
         img: `https://www.weatherbit.io/static/img/icons/${data.weather.icon}.png`,
         params: [
-            {name: 'Ветер', value: `${data.wind_spd}, ${data.wind_cdir_full}`},
-            {name: 'Облачность', value: `${data.clouds} %`},
-            {name: 'Давление', value: `${data.pres} мм.рт.ст`},
-            {name: 'Влажность', value: `${data.rh} %`},
-            {name: 'Координаты', value: `[${data.lat}, ${data.lon}]`},
+            {name: 'Ветер', value: `${data.wind_spd.toFixed(1)} м/с, ${data.wind_cdir_full}`},
+            {name: 'Облачность', value: `${data.clouds.toFixed(1)} %`},
+            {name: 'Давление', value: `${data.pres.toFixed(1)} мб`},
+            {name: 'Влажность', value: `${data.rh.toFixed(1)} %`},
+            {name: 'Координаты', value: `[${data.lat.toFixed(3)}, ${data.lon.toFixed(3)}]`},
         ],
-        temp: data.temp,
+        temp: `${data.temp.toFixed(1)} °C`,
     }
     return result
 }
