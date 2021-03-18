@@ -10,6 +10,53 @@ const veretifyCity = (name) => {
     return /^[a-zA-Zа-яА-я \-]+$/.test(name)
 }
 
+const delErrorCity = (element) => {
+    element.parentElement.parentElement.remove()
+}
+
+const reloadErrorCity = (element, name, checkRepeats, callback) => {
+    addCity(name, checkRepeats, callback, element.parentElement.parentElement)
+}
+
+const creteError = (name, checkRepeats, callback) => {
+    let delButton = document.createElement('button')
+    delButton.setAttribute('class', 'circle-button')
+    delButton.append(createElement('img', {src: '/static/images/del.svg'}))
+    delButton.onclick = function () {
+        console.log(this)
+        this.parentElement.parentElement.parentElement.remove()
+        cities.remove(name)
+    }
+
+    let reloadButton = createElement('button', {class: 'circle-button'}, createElement('img', {src: '/static/images/reload.svg'}))
+
+    reloadButton.onclick = function() {
+        addCity(name, checkRepeats, callback, this.parentElement.parentElement.parentElement)
+    }
+
+    let errorBlock = createElement(
+        'li',
+        {class: 'col-item error-load'},
+        createElement(
+            'div',
+            {class: 'header'},
+            createElement('h3', null, name),
+            createElement(
+                'div',
+                null, 
+                reloadButton,
+                delButton
+            )
+        ),
+        createElement(
+            'img',
+            {src: '/static/images/error.svg'}
+        )
+    )
+
+    return errorBlock
+}
+
 const createMiniLoader = (id) => {
     let loader = createElement('li', {class: 'col-item mini-loader', id: id}, 
         createElement('span', null, 'Загрузка'),
@@ -148,8 +195,12 @@ const deleteCity = (element, name) => {
     cities.remove(name)
 }
 
-const addCity = (name, checkRepeats, callback) => {
-    document.getElementById('city-favs').append(createMiniLoader(`load-city-${name}`))
+const addCity = (name, checkRepeats, callback, errorCard = null) => {
+    if(errorCard) {
+        document.getElementById('city-favs').replaceChild(createMiniLoader(`load-city-${name}`), errorCard)
+    } else {
+        document.getElementById('city-favs').append(createMiniLoader(`load-city-${name}`))
+    }
     let loader = document.getElementById(`load-city-${name}`)
 
     loadData({name: name, coord: null})
@@ -166,7 +217,8 @@ const addCity = (name, checkRepeats, callback) => {
             if(callback) callback(data.city.toLowerCase())
         })
         .catch(err => {
-            alert('Произошла ошибка при взаимодейтвии с API')
+            document.getElementById('city-favs').replaceChild(creteError(name, checkRepeats, callback), loader)
+            // alert('Произошла ошибка при взаимодейтвии с API')
         })
 }
 
@@ -233,7 +285,7 @@ const renderCurrentWeather = (coords) => {
             section.replaceChild(curWeather, document.getElementById('cur-weather-loader'))
         })
         .catch(err => {
-            alert('Произошла ошибка взаимодействия с API')
+            document.getElementById('cur-weather-loader').innerHTML = '<img heigh="100px" src="/static/images/error.svg"/>'
         })
 }
 
