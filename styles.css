@@ -167,20 +167,6 @@ header h1 {
   }
 }
 
-.circle-button {
-  background-color: #687579;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  color: white;
-  text-align: center;
-  vertical-align: middle;
-  outline: none;
-  border-width: 0px;
-  color: #809dff;
-  font-weight: bold;
-}
-
 .favorites {
   padding: 0px;
   margin: 0px;
@@ -262,6 +248,24 @@ ul.none-style {
   margin-right: 5px;
   font-size: 22pt;
   font-weight: bold;
+}
+
+.circle-button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: white;
+  outline: none;
+  border-width: 0px;
+  color: #809dff;
+  font-weight: bold;
+  padding: 0px;
+}
+
+.circle-button img {
+  width: 30px;
+  margin: 0px;
+  height: 30px;
 }
 
 .header {

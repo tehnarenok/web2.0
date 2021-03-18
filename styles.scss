@@ -153,20 +153,6 @@ header {
     }
 }
 
-.circle-button {
-    background-color: rgb(104, 117, 121);
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    color: white;
-    text-align: center;
-    vertical-align: middle;
-    outline: none;
-    border-width: 0px;
-    color: rgb(128, 157, 255);
-    font-weight: bold;
-}
-
 .favorites {
     padding: 0px;
     margin: 0px;    
@@ -233,6 +219,26 @@ ul.none-style {
         font-weight: bold;
     }
 
+}
+
+.circle-button {
+    // background-color: rgb(104, 117, 121);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: white;
+    // text-align: center;
+    // vertical-align: middle;
+    outline: none;
+    border-width: 0px;
+    color: rgb(128, 157, 255);
+    font-weight: bold;
+    padding: 0px;
+    img {
+        width: 30px;
+        margin: 0px;
+        height: 30px;
+    }
 }
 
 .header {

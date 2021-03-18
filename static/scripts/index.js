@@ -131,7 +131,7 @@ const createCity = (data) => {
             createElement('h3', null, `${data.city}`),
             createElement('span', null, `${data.temp}`),
             createElement('img', {src: data.img}),
-            createElement('button', {class: 'circle-button', onclick: `deleteCity(this, "${data.city.toLowerCase()}")`}, 'X')
+            createElement('button', {class: 'circle-button', onclick: `deleteCity(this, "${data.city.toLowerCase()}")`}, createElement('img', {src: '/static/images/del.svg'}))
         ),
         createElement(
             'ul',
