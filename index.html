@@ -9,251 +9,29 @@
         <main>
             <header>
                 <h1>Погода здесь</h1>
-                <button class="reload-geolocation-button">
+                <button class="reload-geolocation-button" id='reload-button'>
                     <span>Обновить геолокацию</span>
-                    <img src="/static/images/refresh.svg" />
+                    <img src="/static/images/refresh.svg"/>
                 </button>
             </header>
-            <section class="cur-weather">
-                <div class="flex-cols">
-                    <div class="col-item ">
-                        <h2>Moscow</h2>
-                        <div class="flex-row">
-                            <img src="/static/images/weather_1.png"/>
-                            <span >-27.1°C</span>
-                        </div>
-                    </div>
-                    <div class="col-item cur-weather-metrics">
-                        <ul class="weather">
-                            <li>
-                                <span class="name">Ветер</span>
-                                <span class="value">Moderate breeze, 6.0 m/s, North-northwest</span>
-                            </li>
-                            <li>
-                                <span class="name">Облачность</span>
-                                <span class="value">Broken clouds</span>
-                            </li>
-                            <li>
-                                <span class="name">Давление</span>
-                                <span class="value">1013 hpa</span>
-                            </li>
-                            <li>
-                                <span class="name">Влажность</span>
-                                <span class="value">52%</span>
-                            </li>
-                            <li>
-                                <span class="name">Координаты</span>
-                                <span class="value">[59.88, 30.42]</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <section class="cur-weather" id='cur-weather'>
             </section>
             <section class="favorites">
                 <div class="header header-fav">
                     <h2>Избранное</h2>
-                    <form class="new-city">
-                        <input type="text" placeholder="Добавить новый город"/>
-                        <button class="circle-button">
+                    <form class="new-city" id='new-city'>
+                        <input type="text" placeholder="Добавить новый город" id='city-name'/>
+                        <button class="circle-button" id='button-add'>
                             +
                         </button>
                     </form>
                 </div>
-                <ul class="flex-cols none-style">
-                    <li class="col-item city-card">
-                        <div class="header-weather">
-                            <h3>Helsinki</h3>
-                            <span>8°C</span>
-                            <img src="/static/images/weather_1.png"/>
-                            <button class="circle-button">
-                                X
-                            </button>
-                        </div>
-                        <ul class="weather">
-                            <li>
-                                <span class="name">Ветер</span>
-                                <span class="value">Moderate breeze, 6.0 m/s, North-northwest</span>
-                            </li>
-                            <li>
-                                <span class="name">Облачность</span>
-                                <span class="value">Broken clouds</span>
-                            </li>
-                            <li>
-                                <span class="name">Давление</span>
-                                <span class="value">1013 hpa</span>
-                            </li>
-                            <li>
-                                <span class="name">Влажность</span>
-                                <span class="value">52%</span>
-                            </li>
-                            <li>
-                                <span class="name">Координаты</span>
-                                <span class="value">[59.88, 30.42]</span>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="col-item city-card">
-                        <div class="header-weather">
-                            <h3>Moscow</h3>
-                            <span>8°C</span>
-                            <img src="/static/images/weather_1.png"/>
-                            <button class="circle-button">
-                                X
-                            </button>
-                        </div>
-                        <ul class="weather">
-                            <li>
-                                <span class="name">Ветер</span>
-                                <span  class="value">Moderate breeze, 6.0 m/s, North-northwest</span>
-                            </li>
-                            <li>
-                                <span class="name">Облачность</span>
-                                <span class="value">Broken clouds</span>
-                            </li>
-                            <li>
-                                <span class="name">Давление</span>
-                                <span class="value">1013 hpa</span>
-                            </li>
-                            <li>
-                                <span class="name">Влажность</span>
-                                <span class="value">52%</span>
-                            </li>
-                            <li>
-                                <span class="name">Координаты</span>
-                                <span class="value">[59.88, 30.42]</span>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="col-item city-card">
-                        <div class="header-weather">
-                            <h3>Moscow</h3>
-                            <span>8°C</span>
-                            <img src="/static/images/weather_1.png"/>
-                            <button class="circle-button">
-                                X
-                            </button>
-                        </div>
-                        <ul class="weather">
-                            <li>
-                                <span class="name">Ветер</span>
-                                <span class="value">Moderate breeze, 6.0 m/s, North-northwest</span>
-                            </li>
-                            <li>
-                                <span class="name">Облачность</span>
-                                <span class="value">Broken clouds</span>
-                            </li>
-                            <li>
-                                <span class="name">Давление</span>
-                                <span class="value">1013 hpa</span>
-                            </li>
-                            <li>
-                                <span class="name">Влажность</span>
-                                <span class="value">52%</span>
-                            </li>
-                            <li>
-                                <span class="name">Координаты</span>
-                                <span class="value">[59.88, 30.42]</span>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="col-item city-card">
-                        <div class="header-weather">
-                            <h3>Moscow</h3>
-                            <span>8°C</span>
-                            <img src="/static/images/weather_1.png"/>
-                            <button class="circle-button">
-                                X
-                            </button>
-                        </div>
-                        <ul class="weather">
-                            <li>
-                                <span class="name">Ветер</span>
-                                <span class="value">Moderate breeze, 6.0 m/s, North-northwest</span>
-                            </li>
-                            <li>
-                                <span class="name">Облачность</span>
-                                <span class="value">Broken clouds</span>
-                            </li>
-                            <li>
-                                <span class="name">Давление</span>
-                                <span class="value">1013 hpa</span>
-                            </li>
-                            <li>
-                                <span class="name">Влажность</span>
-                                <span class="value">52%</span>
-                            </li>
-                            <li>
-                                <span class="name">Координаты</span>
-                                <span class="value">[59.88, 30.42]</span>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="col-item city-card">
-                        <div class="header-weather">
-                            <h3>Moscow</h3>
-                            <span>8°C</span>
-                            <img src="/static/images/weather_1.png"/>
-                            <button class="circle-button">
-                                X
-                            </button>
-                        </div>
-                        <ul class="weather">
-                            <li>
-                                <span class="name">Ветер</span>
-                                <span class="value">Moderate breeze, 6.0 m/s, North-northwest</span>
-                            </li>
-                            <li>
-                                <span class="name">Облачность</span>
-                                <span class="value">Broken clouds</span>
-                            </li>
-                            <li>
-                                <span class="name">Давление</span>
-                                <span class="value">1013 hpa</span>
-                            </li>
-                            <li>
-                                <span class="name">Влажность</span>
-                                <span class="value">52%</span>
-                            </li>
-                            <li>
-                                <span class="name">Координаты</span>
-                                <span class="value">[59.88, 30.42]</span>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="col-item city-card">
-                        <div class="header-weather">
-                            <h3>Moscow</h3>
-                            <span>8°C</span>
-                            <img src="/static/images/weather_1.png"/>
-                            <button class="circle-button">
-                                X
-                            </button>
-                        </div>
-                        <ul class="weather">
-                            <li>
-                                <span class="name">Ветер</span>
-                                <span class="value">Moderate breeze, 6.0 m/s, North-northwest</span>
-                            </li>
-                            <li>
-                                <span class="name">Облачность</span>
-                                <span class="value">Broken clouds</span>
-                            </li>
-                            <li>
-                                <span class="name">Давление</span>
-                                <span class="value">1013 hpa</span>
-                            </li>
-                            <li>
-                                <span class="name">Влажность</span>
-                                <span class="value">52%</span>
-                            </li>
-                            <li>
-                                <span class="name">Координаты</span>
-                                <span class="value">[59.88, 30.42]</span>
-                            </li>
-                        </ul>
-                    </li>
+                <ul class="flex-cols none-style" id="city-favs">
+                    
                 </ul>
             </section>
         </main>
+        <script src="static/scripts/city_card.js" type="application/javascript"></script>
+        <script src="static/scripts/index.js" type="module"></script>
     </body>
 </html>

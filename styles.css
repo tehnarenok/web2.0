@@ -177,7 +177,7 @@ header h1 {
   vertical-align: middle;
   outline: none;
   border-width: 0px;
-  color: #67e66e;
+  color: #809dff;
   font-weight: bold;
 }
 
@@ -297,7 +297,7 @@ ul.none-style {
   padding: 0px 10px;
   width: 20vw;
   margin-right: 10px;
-  background-color: #fcaff8;
+  background-color: #afd7fc;
   border-radius: 3px;
 }
 
@@ -406,5 +406,29 @@ ul.none-style {
   .flex-cols .col-item {
     width: 45%;
   }
+}
+
+.mini-loader, .loader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mini-loader span, .loader span {
+  color: blue;
+  font-weight: bold;
+  font-size: large;
+}
+
+.mini-loader img, .loader img {
+  margin-top: 10px;
+  height: 100px;
 }
 /*# sourceMappingURL=styles.css.map */
