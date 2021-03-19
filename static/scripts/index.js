@@ -225,6 +225,7 @@ const addCity = (name, checkRepeats, callback, errorCard = null) => {
         .catch(err => {
             document.getElementById('city-favs').replaceChild(creteError(name, checkRepeats, callback), loader)
             console.error(err)
+            // new Audio('/static/error.mp3').play()
         })
 }
 
@@ -293,6 +294,7 @@ const renderCurrentWeather = (coords) => {
         .catch(err => {
             document.getElementById('cur-weather-loader').innerHTML = '<img heigh="100px" src="/static/images/error.svg"/>'
             console.error(err)
+            // new Audio('/static/error.mp3').play()
         })
 }
 
