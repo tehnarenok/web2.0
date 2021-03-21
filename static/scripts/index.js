@@ -1,7 +1,8 @@
-let cities = JSON.parse(localStorage.getItem('CITIES_LIST') || '[]')
+let cities = []
 
-const API_KEY = "436d1a96e5cb42e294ec78b059ab8e71"
-const API_URL = "https://api.weatherbit.io/v2.0/current?lang=ru&"
+const API_URL = "https://tranquil-wildwood-28247.herokuapp.com"
+
+let TOKEN = localStorage.getItem('TOKEN') || ''
 
 const DEFAULT_COORDS = {lat: 55.752, lon: 37.615}
 
@@ -23,7 +24,6 @@ const creteError = (name, checkRepeats, callback) => {
     delButton.setAttribute('class', 'circle-button')
     delButton.append(createElement('img', {src: '/static/images/del.svg'}))
     delButton.addEventListener('click', function () {
-        // console.log(this)
         this.parentElement.parentElement.parentElement.remove()
         cities.remove(name)
     })
@@ -73,34 +73,32 @@ const createLoader = (id = 'cur-weather-loader') => {
     return loader
 }
 
-function loadData(data) {
+const loadData = (data) => {
     return new Promise((resolve, reject) => {
-        if (data.name) {
-            fetch(`${API_URL}city=${data.name}&key=${API_KEY}`)
-                .then(res => res.json())
-                .then(data => {
-                    if(data.error || data.count !== 1) {
-                        reject(data.error)
-                    } else {
-                        return resolve(parseApiRequest(data.data[0]))
+        if(data.name) {
+            fetch(`${API_URL}/current/city?city=${data.name}`, {headers: {'TOKEN': TOKEN}})
+                .then(res => {
+                    if(res.headers.get('TOKEN')) {
+                        TOKEN = res.headers.get('TOKEN')
+                        localStorage.setItem('TOKEN', res.headers.get('TOKEN'))
                     }
+                    return res.json()
                 })
-                .catch(err => reject('Ошибка API'))
-        }
-        else {
+                .then(data => resolve(data))
+                .catch(err => reject(err))
+        } else {
             if(data.coord) {
-                fetch(`${API_URL}lat=${data.coord.lat}&lon=${data.coord.lon}&key=${API_KEY}`)
-                    .then(res => res.json())
-                    .then(data => {
-                        if(data.error || data.count !== 1) {
-                            reject(data.error)
-                        } else {
-                            return resolve(parseApiRequest(data.data[0]))
-                        }
-                    })
-                    .catch(err => reject('Ошибка API'))
-            }
-            else {
+            fetch(`${API_URL}/current/coord?lat=${data.coord.lat}&lon=${data.coord.lon}`, {headers: {'TOKEN': TOKEN}})
+                .then(res => {
+                    if(res.headers.get('TOKEN')) {
+                        TOKEN = res.headers.get('TOKEN')
+                        localStorage.setItem('TOKEN', res.headers.get('TOKEN'))
+                    }
+                    return res.json()
+                })
+                .then(data => resolve(data))
+                .catch(err => reject(err))
+            } else {
                 reject('Invalid data')
             }
         }
@@ -138,7 +136,10 @@ cities.add = (function() {
         addCity(name, (name) => this.indexOf(name) !== -1, (name) => {
             args[0] = name
             Array.prototype.push.apply(this, args)
-            localStorage.setItem('CITIES_LIST', JSON.stringify(this))
+            fetch(`${API_URL}/favs/set?cities=${JSON.stringify(this)}`, {headers: {'TOKEN': TOKEN}})
+                .then(res => {})
+                .catch(e => console.error('Error save fav list', e))
+            // localStorage.setItem('CITIES_LIST', JSON.stringify(this))
         })
     }
 })()
@@ -156,7 +157,15 @@ cities.remove = (function() {
 
         if(index !== -1) {
             this.splice(index, 1)
-            localStorage.setItem('CITIES_LIST', JSON.stringify(this))
+            fetch(`${API_URL}/favs/set?cities=${JSON.stringify(this)}`, {headers: {'TOKEN': TOKEN}})
+                .then(res => {
+                    if(res.headers.get('TOKEN')) {
+                        TOKEN = res.headers.get('TOKEN')
+                        localStorage.setItem('TOKEN', res.headers.get('TOKEN'))
+                    }
+                })
+                .catch(e => console.error('Error save fav list', e))
+            //localStorage.setItem('CITIES_LIST', JSON.stringify(this))
         }
     }
 })()
@@ -331,7 +340,19 @@ document.getElementById('new-city').addEventListener('submit', function(e) {
 
 document.getElementById('reload-button').addEventListener('click', loadCurrentWeather)
 
-cities.forEach(city => {
-    addCity(city)
-})
+fetch(`${API_URL}/favs/get`, {headers: {'TOKEN': TOKEN}})
+    .then(res => {
+        if(res.headers.get('TOKEN')) {
+            TOKEN = res.headers.get('TOKEN')
+            localStorage.setItem('TOKEN', res.headers.get('TOKEN'))
+        }
+        return res.json()
+    })
+    .then(data => {
+        data.forEach(city => {
+            cities.push(city)
+            addCity(city)
+        })
+    })
+    .catch(e => console.error('Error get fav list', e))
 
