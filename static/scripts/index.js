@@ -1,7 +1,7 @@
 let cities = []
 
-// const API_URL = "https://tranquil-wildwood-28247.herokuapp.com"
-const API_URL = "http://localhost:8000"
+const API_URL = "https://tranquil-wildwood-28247.herokuapp.com"
+// const API_URL = "http://localhost:8000"
 
 let TOKEN = localStorage.getItem('TOKEN') || ''
 
