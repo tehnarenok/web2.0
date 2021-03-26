@@ -1,6 +1,7 @@
 let cities = []
 
-const API_URL = "https://tranquil-wildwood-28247.herokuapp.com"
+// const API_URL = "https://tranquil-wildwood-28247.herokuapp.com"
+const API_URL = "http://localhost:8000"
 
 let TOKEN = localStorage.getItem('TOKEN') || ''
 
@@ -146,6 +147,8 @@ cities.add = (function() {
 
 cities.remove = (function() {
     return function() {
+        console.log(arguments)
+        let f = arguments[1]
         let name = arguments[0].toString()
         name = name.toLowerCase()
 
@@ -156,9 +159,18 @@ cities.remove = (function() {
         // console.log(index)
 
         if(index !== -1) {
-            this.splice(index, 1)
-            fetch(`${API_URL}/favs/set?cities=${JSON.stringify(this)}`, {headers: {'TOKEN': TOKEN}})
+            let array = [...this]
+            array.splice(index, 1)
+            console.log(array)
+            fetch(`${API_URL}/favs/set?cities=${JSON.stringify(array)}`, {headers: {'TOKEN': TOKEN}})
                 .then(res => {
+                    console.log('aaaaaaaaaa', res)
+                    if(res.status === 200) {
+                        this.splice(index, 1)
+                        f()
+                    } else {
+                        console.error('Ошибка')
+                    }
                     if(res.headers.get('TOKEN')) {
                         TOKEN = res.headers.get('TOKEN')
                         localStorage.setItem('TOKEN', res.headers.get('TOKEN'))
@@ -185,8 +197,7 @@ const createCity = (data) => {
         createElement('img', {src: '/static/images/del.svg'})
     )
     delButton.addEventListener('click', function() {
-        this.parentElement.parentElement.remove()
-        cities.remove(data.city.toLowerCase())
+        cities.remove(data.city.toLowerCase(), () => this.parentElement.parentElement.remove())
     })
 
     let city = createElement(
