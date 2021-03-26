@@ -147,8 +147,9 @@ cities.add = (function() {
 
 cities.remove = (function() {
     return function() {
+        arguments[1].disabed = true
         console.log(arguments)
-        let f = arguments[1]
+        // let f = arguments[1]
         let name = arguments[0].toString()
         name = name.toLowerCase()
 
@@ -164,10 +165,11 @@ cities.remove = (function() {
             console.log(array)
             fetch(`${API_URL}/favs/set?cities=${JSON.stringify(array)}`, {headers: {'TOKEN': TOKEN}})
                 .then(res => {
+                    arguments[1].disabed = false
                     console.log('aaaaaaaaaa', res)
                     if(res.status === 200) {
                         this.splice(index, 1)
-                        f()
+                        arguments[1].parentElement.parentElement.remove()
                     } else {
                         console.error('Ошибка')
                     }
@@ -197,7 +199,7 @@ const createCity = (data) => {
         createElement('img', {src: '/static/images/del.svg'})
     )
     delButton.addEventListener('click', function() {
-        cities.remove(data.city.toLowerCase(), () => this.parentElement.parentElement.remove())
+        cities.remove(data.city.toLowerCase(), this)
     })
 
     let city = createElement(
