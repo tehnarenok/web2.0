@@ -30,7 +30,9 @@ services:
       - backend
       - frontend
     ports:
-      - $PORT:80
+      - "${PORT}:80"
+    networks:
+      - local-network
 networks:
   local-network:
     name: local-network
